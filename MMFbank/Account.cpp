@@ -43,7 +43,15 @@ namespace mmfbank {
     }
 
     unsigned long long Account::hashPassword(unsigned int password) {
-        return (password * 31) * (password * 31) + password * 17;
+        unsigned long long hash = password * 13 - 7;
+
+        hash ^= (hash << 13);
+        hash ^= (hash >> 7);
+        hash ^= (hash << 17);
+        hash ^= (hash >> 7);
+        hash ^= (hash << 5);
+
+        return hash;
     }
 
     const std::string& Account::getLogin() const {

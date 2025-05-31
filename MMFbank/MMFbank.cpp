@@ -3,17 +3,18 @@
 #include "AccountDB.h"
 #include <ctime>
 
+int SIZE = 10;
+
 using namespace mmfbank;
 using namespace std;
 
 int main() {
     srand(time(NULL));
-    AccountDB bank(20);
-
-    bank.addRandomAccount();
-    bank.addRandomAccount();
-    bank.addRandomAccount();
-    bank.addRandomAccount();
+    AccountDB bank(SIZE);
+    for (int i = 0; i < SIZE; i++)
+    {
+        bank.addRandomAccount();
+    }
 
     int choice;
     string login;

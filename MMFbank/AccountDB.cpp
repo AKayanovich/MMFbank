@@ -94,12 +94,17 @@ namespace mmfbank {
                 double amount;
                 output << "Enter amount to add: ";
                 input >> amount;
-                result << addFunds(amount) << "\n";
+                std::string addResult = addFunds(amount);
+                output << addResult << "\n"; 
+                result << addResult << "\n"; 
                 break;
             }
-            case 2:
-                result << showBalance() << "\n";
+            case 2: {
+                std::string balanceResult = showBalance();
+                output << balanceResult << "\n"; 
+                result << balanceResult << "\n";
                 break;
+            }
             case 3: {
                 unsigned int toAccount;
                 double amount;
@@ -107,7 +112,9 @@ namespace mmfbank {
                 input >> toAccount;
                 output << "Enter amount to transfer: ";
                 input >> amount;
-                result << transferMoney(toAccount, amount) << "\n";
+                std::string transferResult = transferMoney(toAccount, amount);
+                output << transferResult << "\n"; 
+                result << transferResult << "\n";
                 break;
             }
             case 4:
